@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>LitElement</title>
+    </head>
+
+    <body>
+        <h1>LitElement</h1>
+        
+        <!--<eit-counter counter="15">
+            <h2>Contador 1</h2>
+        </eit-counter>-->
+        <eit-counter 
+            counter="1"
+            id="counter">
+            <h3>Contador 2</h3>
+        </eit-counter>
+
+        <br>
+        <button id="reset">Reset</button>
+
+        <script src="components/eit-counter.js" type="module"></script>
+        <script>
+            document.querySelector('#reset').addEventListener('click', () => {
+                // regresamoe el valor de la propiedad counter a 0
+                document.querySelector('#counter').counter = 0;
+
+                // podemos insertar un web component al DOM mediante javascript
+                let newCounter = document.createElement('eit-counter');
+                // modificamos el valor de la propiedad quantity
+                newCounter.setAttribute('quantity', 1000);
+                document.body.appendChild(newCounter);
+            });
+        </script>
+    </body>
+</html>
